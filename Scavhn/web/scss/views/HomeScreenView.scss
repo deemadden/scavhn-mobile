@@ -1,0 +1,289 @@
+@import "compass/css3";
+@import "compass/css3/opacity";
+
+$break-iphone-min: 320px;
+$break-iphone4-max: 480px;
+$break-iphone5-max: 568px;
+$break-ipad-min: 768px;
+$break-ipad-max: 1024px;
+$orientation: portait;
+
+@mixin scav-highlighted($color) {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 44px;
+  width: 232px;
+  height: 44px;
+  background: $color;
+  opacity: 0.8;
+}
+
+@mixin scav-items-container($top, $height, $width) {
+  top: $top;
+  left: 50%;
+  height: $height;
+  width: $width;
+  margin: 0 0 0 (-$width)/2;
+}
+
+.home-screen-view {
+  @extend body;
+  background: #d1e3e5;
+
+  .home-screen-title {
+    position: fixed;
+    left: 50%;
+    top: 22px;
+    height: 58px;
+    width: 198px;
+    margin: 0 0 0 -99px;
+    background: image-url('homescreen/scavhn-logo.png') no-repeat center center;
+  }
+
+  .scav-level-items-title {
+    position: fixed;
+    left: 50%;
+    top: 146px;
+    width: 276px;
+    margin: 0 0 0 -138px;
+
+    p {
+      font-family: $HelveticaNeueLight;
+      font-size: 22px;
+      letter-spacing: 1px;
+      color: #595959;
+      line-height: 1;
+      margin: 0 0;
+    }
+  }
+
+  .scav-level-items {
+    position: fixed;
+    @include scav-items-container(183px, 176px, 276px);
+
+    .scav-beginner-level-item {
+      position: absolute;
+
+      a {
+        @include scav-cta-size-sm();
+        @include scav-cta($scav-vulture-green, null, null);
+
+        span {
+          text-transform: capitalize;
+          letter-spacing: 1px;
+          margin-left: 55px;
+        }
+      }
+
+      .scav-beginner-highlighted {
+        @include scav-highlighted($scav-vulture-green);
+      }
+    }
+
+    .scav-intermediate-level-item {
+      position: absolute;
+      top: 66px;
+
+      a {
+        @include scav-cta-size-sm();
+        @include scav-cta($scav-item-blue, null, null);
+
+        span {
+          text-transform: capitalize;
+          letter-spacing: 1px;
+          margin-left: 55px;
+        }
+      }
+
+      .scav-intermediate-highlighted {
+        @include scav-highlighted($scav-item-blue);
+      }
+    }
+
+    .scav-expert-level-item {
+      position: absolute;
+      top: 132px;
+
+      a {
+        @include scav-cta-size-sm();
+        @include scav-cta($scav-item-red, null, null);
+
+        span {
+          text-transform: capitalize;
+          letter-spacing: 1px;
+          margin-left: 55px;
+        }
+      }
+
+      .scav-expert-highlighted {
+        @include scav-highlighted($scav-item-red);
+      }
+    }
+  }
+
+  .begin-scav-action {
+    bottom: -1px;
+    padding-bottom: 20px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: fixed;
+    text-align: center;
+
+    a {
+      background-color: $scav-item-offwhite;
+      background-image: image-url('homescreen/homescreen-begin-lg.png');
+      background-repeat: no-repeat;
+      background-position: top left;
+
+      span {
+        letter-spacing: 1px;
+        color: #595959;
+      }
+    }
+  }
+}
+
+/*********************************************
+  For applying button hightlighting.  Lives outside
+  of the nesting because it is a toggle
+ *********************************************/
+.highlight-cta-text {
+  color: $scav-item-offwhite;
+}
+
+
+/*********************************************
+    Responsive styling
+ *********************************************/
+
+/* iPhones (portrait) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+  /*CSS Instructions */
+  .home-screen-view {
+    background: image-url('homescreen/homescreen-bg-iphone5-portrait.png') no-repeat center center;
+  }
+}
+
+$iphone-container-landscape-width: 414px;
+
+/* iPhone 5 (landscape) */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: landscape) {
+  /*CSS Instructions */
+  .home-screen-view {
+    background: image-url('homescreen/homescreen-bg-iphone5-landscape.png') no-repeat center center;
+
+    .home-screen-title {
+
+    }
+
+    .scav-level-items-title {
+      display: none;
+    }
+
+    .scav-level-items {
+      @include scav-items-container(88px, 136px, $iphone-container-landscape-width);
+
+      .scav-beginner-level-item {
+        a {
+          width: $iphone-container-landscape-width;
+        }
+
+        .scav-beginner-highlighted {
+          width: $iphone-container-landscape-width - 44;
+        }
+      }
+
+      .scav-intermediate-level-item {
+        top: 46px;
+
+        a {
+          width: $iphone-container-landscape-width;
+        }
+
+        .scav-intermediate-highlighted {
+          width: $iphone-container-landscape-width - 44;
+        }
+      }
+
+      .scav-expert-level-item {
+        top: 92px;
+
+        a {
+          width: $iphone-container-landscape-width;
+        }
+
+        .scav-expert-highlighted {
+          width: $iphone-container-landscape-width - 44;
+        }
+      }
+    }
+
+    .begin-scav-action {
+      padding-bottom: 16px;
+    }
+  }
+}
+
+/* iPads (portrait) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+  /*CSS Instructions */
+  .home-screen-view {
+    background: image-url('homescreen/homescreen-bg-ipad-portrait.png') no-repeat center center;
+
+    /*.home-screen-title {
+
+    }
+
+    .scav-level-items-title {
+
+    }
+
+    .scav-level-items {
+
+      .scav-beginner-level-item {
+
+      }
+
+      .scav-intermediate-level-item {
+
+      }
+
+      .scav-expert-level-item {
+
+      }
+    }*/
+  }
+}
+
+/* iPads (landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+  /*CSS Instructions */
+  .home-screen-view {
+    background: image-url('homescreen/homescreen-bg-ipad-landscape.png') no-repeat center center;
+
+    /*.home-screen-title {
+
+    }
+
+    .scav-level-items-title {
+
+    }
+
+    .scav-level-items {
+
+      .scav-beginner-level-item {
+
+      }
+
+      .scav-intermediate-level-item {
+
+      }
+
+      .scav-expert-level-item {
+
+      }
+    }*/
+  }
+}

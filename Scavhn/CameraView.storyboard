@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="eOP-ul-71r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--Camera View Controller-->
+        <scene sceneID="GBa-Rs-pVT">
+            <objects>
+                <viewController storyboardIdentifier="CameraViewController" id="eOP-ul-71r" customClass="CameraViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jAH-X3-bfL"/>
+                        <viewControllerLayoutGuide type="bottom" id="HWN-RX-fKN"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="epz-NL-9cU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Test" translatesAutoresizingMaskIntoConstraints="NO" id="NEE-7G-giO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="426"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view alpha="0.69999999999999973" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4n4-of-kFx">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ScavItemPlaceHolder" translatesAutoresizingMaskIntoConstraints="NO" id="Do9-nD-irz">
+                                        <rect key="frame" x="99" y="10" width="38" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gameboy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vir-PV-DCU">
+                                        <rect key="frame" x="146" y="21" width="75" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="etC-bL-auH"/>
+                                            <constraint firstAttribute="height" constant="22" id="tBo-Pp-Bym"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Vir-PV-DCU" firstAttribute="leading" secondItem="Do9-nD-irz" secondAttribute="trailing" constant="9" id="AGX-Zo-695"/>
+                                    <constraint firstItem="Do9-nD-irz" firstAttribute="top" secondItem="4n4-of-kFx" secondAttribute="top" constant="10" id="baQ-7P-8DF"/>
+                                    <constraint firstItem="Vir-PV-DCU" firstAttribute="top" secondItem="4n4-of-kFx" secondAttribute="top" constant="21" id="g5w-WS-u30"/>
+                                    <constraint firstAttribute="bottom" secondItem="Do9-nD-irz" secondAttribute="bottom" constant="15" id="scI-R3-Ejx"/>
+                                    <constraint firstAttribute="centerX" secondItem="Vir-PV-DCU" secondAttribute="centerX" constant="-23.5" id="vcH-sM-qat"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVb-VU-Lgh">
+                                <rect key="frame" x="0.0" y="464" width="320" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zpa-Hj-sFG">
+                                        <rect key="frame" x="28" y="0.0" width="66" height="86"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <inset key="titleEdgeInsets" minX="-66" minY="66" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Retake" image="RetakeButton">
+                                            <color key="titleColor" red="0.43137254901960786" green="0.56470588235294117" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="retakePictureButtonTapped:" destination="eOP-ul-71r" eventType="touchUpInside" id="jei-Fu-TbU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYl-bC-ryU">
+                                        <rect key="frame" x="226" y="0.0" width="66" height="86"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <inset key="titleEdgeInsets" minX="-66" minY="66" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="-20" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="Confirm" image="ConfirmButton">
+                                            <color key="titleColor" red="0.80392156862745101" green="0.63921568627450975" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="confirmButtonTapped:" destination="eOP-ul-71r" eventType="touchUpInside" id="SdI-Ep-LeG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3x-pM-jhi">
+                                <rect key="frame" x="0.0" y="465" width="320" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dt-tF-Pt5">
+                                        <rect key="frame" x="127" y="0.0" width="66" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="TakePictureButton">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" backgroundImage="TakePictureButtonTapped"/>
+                                        <connections>
+                                            <action selector="takePictureButtonTapped:" destination="eOP-ul-71r" eventType="touchUpInside" id="Be2-Uo-hPw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fuQ-6S-anq">
+                                        <rect key="frame" x="23" y="58" width="33" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="FMT-DB-Sdu"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <state key="normal" backgroundImage="CancelButton">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" backgroundImage="CancelButtonTapped"/>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="eOP-ul-71r" eventType="touchUpInside" id="i6w-Gb-jaQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="fuQ-6S-anq" firstAttribute="leading" secondItem="Z3x-pM-jhi" secondAttribute="leading" constant="23" id="Hwt-MM-1ig"/>
+                                    <constraint firstAttribute="bottom" secondItem="fuQ-6S-anq" secondAttribute="bottom" constant="18" id="NHU-df-AHU"/>
+                                    <constraint firstItem="1Dt-tF-Pt5" firstAttribute="top" secondItem="Z3x-pM-jhi" secondAttribute="top" id="TyP-CG-VuM"/>
+                                    <constraint firstItem="fuQ-6S-anq" firstAttribute="top" secondItem="Z3x-pM-jhi" secondAttribute="top" constant="58" id="kyW-Ow-y3w"/>
+                                    <constraint firstItem="1Dt-tF-Pt5" firstAttribute="leading" secondItem="fuQ-6S-anq" secondAttribute="trailing" constant="71" id="qlp-hY-N9N"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4n4-of-kFx" secondAttribute="trailing" id="46B-Ha-V3I"/>
+                            <constraint firstAttribute="bottom" secondItem="Z3x-pM-jhi" secondAttribute="bottom" id="6fs-gB-CxZ"/>
+                            <constraint firstItem="Z3x-pM-jhi" firstAttribute="leading" secondItem="IVb-VU-Lgh" secondAttribute="leading" id="BEI-7t-6OQ"/>
+                            <constraint firstItem="4n4-of-kFx" firstAttribute="leading" secondItem="epz-NL-9cU" secondAttribute="leading" id="Cvp-5a-25T"/>
+                            <constraint firstItem="HWN-RX-fKN" firstAttribute="top" secondItem="IVb-VU-Lgh" secondAttribute="bottom" constant="18" id="GIw-gP-8wl"/>
+                            <constraint firstItem="Z3x-pM-jhi" firstAttribute="trailing" secondItem="4n4-of-kFx" secondAttribute="trailing" id="Zcb-R4-241"/>
+                            <constraint firstItem="Z3x-pM-jhi" firstAttribute="trailing" secondItem="IVb-VU-Lgh" secondAttribute="trailing" id="lL6-RA-OYh"/>
+                            <constraint firstItem="IVb-VU-Lgh" firstAttribute="top" secondItem="epz-NL-9cU" secondAttribute="top" constant="464" id="vWR-YL-5Ul"/>
+                            <constraint firstItem="4n4-of-kFx" firstAttribute="top" secondItem="epz-NL-9cU" secondAttribute="top" id="wyB-zg-KpU"/>
+                            <constraint firstItem="Z3x-pM-jhi" firstAttribute="leading" secondItem="4n4-of-kFx" secondAttribute="leading" id="zfr-My-dmk"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="fuQ-6S-anq" id="URo-6P-YH6"/>
+                        <outlet property="confirmButton" destination="vYl-bC-ryU" id="Rtv-Is-yjx"/>
+                        <outlet property="headerView" destination="4n4-of-kFx" id="Dqs-qN-7El"/>
+                        <outlet property="picturePreview" destination="NEE-7G-giO" id="SdP-xA-Q35"/>
+                        <outlet property="retakePictureButton" destination="Zpa-Hj-sFG" id="IHK-Pd-81I"/>
+                        <outlet property="retakePictureView" destination="IVb-VU-Lgh" id="xtJ-IT-3G6"/>
+                        <outlet property="scavItemImage" destination="Do9-nD-irz" id="bFF-O7-RC8"/>
+                        <outlet property="scavItemLabel" destination="Vir-PV-DCU" id="lHJ-Cl-yP2"/>
+                        <outlet property="takePictureButton" destination="1Dt-tF-Pt5" id="scR-iB-Igl"/>
+                        <outlet property="takePictureView" destination="Z3x-pM-jhi" id="573-x4-vUp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bP4-7E-UaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="127" y="24"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CancelButton" width="33" height="27"/>
+        <image name="CancelButtonTapped" width="33" height="27"/>
+        <image name="ConfirmButton" width="66" height="66"/>
+        <image name="RetakeButton" width="66" height="66"/>
+        <image name="ScavItemPlaceHolder" width="38" height="38"/>
+        <image name="TakePictureButton" width="66" height="66"/>
+        <image name="TakePictureButtonTapped" width="66" height="66"/>
+        <image name="Test" width="640" height="1136"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

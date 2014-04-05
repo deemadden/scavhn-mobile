@@ -1,0 +1,35 @@
+@mixin load-indicator-view-positioning {
+  margin-left: -23px;
+  margin-top: -23px;
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  top: 50%;
+  left: 50%;
+}
+
+.load-indicator-root {
+  display: none;
+}
+
+.load-indicator-view {
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+
+  .load-indicator-background {
+    background-color: #595959;
+    @include border-radius(16px);
+    @include opacity(.8);
+    @include load-indicator-view-positioning;
+  }
+
+  .load-indicator-spinner {
+    background: image-url('modals/ajax-loader-large-grey.gif') center center no-repeat;
+    @include load-indicator-view-positioning;
+  }
+}

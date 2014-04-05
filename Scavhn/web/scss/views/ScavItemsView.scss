@@ -1,0 +1,566 @@
+@import "compass/css3";
+@import "compass/css3/opacity";
+
+
+/*********************************************
+    Mixins
+ *********************************************/
+@mixin headsup-list-item() {
+  display: inline-block;
+  vertical-align: top;
+}
+
+@mixin found-left-labels() {
+  font-size: 22px;
+  color: $scav-item-offwhite;
+  padding: 7px 0px;
+  margin: 0;
+}
+
+@mixin flicker-fix() {
+  -webkit-transform: translateZ(0);
+  -webkit-perspective: 1000;
+  -webkit-backface-visibility: hidden;
+}
+
+@mixin scav-found-left-box($color) {
+  background-color: $color;
+  width: 49%;
+  text-align: center;
+}
+
+@mixin forty-four-image-size() {
+  height: 44px;
+  width: 44px;
+}
+
+@mixin camera-cta-label() {
+  position: relative;
+  left: 54px;
+  margin: 0 0;
+  line-height: 1.95;
+  text-align: left;
+  font-size: 22px;
+  z-index: -1;
+}
+/*********************************************
+    Styling
+ *********************************************/
+.scav-items-view {
+  width: 100%;
+  font-family: $HelveticaNeueLight;
+  position: relative;
+  background-color: #e9e9e9;
+
+  .scav-items-header {
+    @include flicker-fix();
+    background-color: #e9e9e9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+
+    .scav-items-title-container {
+      width: 100%;
+      background-color: #cda349;
+      margin: 0;
+      padding: 0;
+
+      ul {
+
+        .scavhn-headsup-icon {
+          @include headsup-list-item();
+          background: image-url('scavitemsscreen/scavhn-headsup-logo.png') no-repeat center center;
+          padding: 13px 20px;
+        }
+
+        .scavhn-headsup-activity-image {
+          @include headsup-list-item();
+          background: image-url('scavitemsscreen/playerimgheadsup.png') no-repeat center center;
+          padding: 13px 20px;
+        }
+
+        .scav-headsup-image {
+          @include headsup-list-item();
+          padding: 13px 20px;
+        }
+
+        .scav-headsup-point-total {
+          @include headsup-list-item();
+          background-color: $scav-item-bronze;
+          padding: 7px 8px;
+          min-width: 65px;
+
+          p:before {
+            content: "";
+            width: 28px;
+            display: block;
+            overflow: hidden;
+          }
+
+          p {
+            color: $scav-item-offwhite;
+            font-size: 22px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        .scav-headsup-recent-item {
+          @include headsup-list-item();
+          overflow: hidden;
+          background-color: #e9e9e9;
+          padding: 0px 40px 8px 10px;
+          border-top: 1px solid #cda349;
+          border-bottom: 1px solid #cda349;
+
+          p:before {
+            content: "";
+            width: 72px;
+            display: block;
+            overflow: hidden;
+          }
+
+          p {
+            position: relative;
+            color: #cda349;
+            font-size: 11px;
+            margin: 0;
+            padding: 2px 0 0 0;
+          }
+
+          .scav-headsup-recent-item-label {
+            background-color: #e9e9e9;
+            z-index: 6;
+          }
+
+          .scav-headsup-itemname-label {
+            z-index: 5;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 72px;
+          }
+        }
+      }
+    }
+
+    .scav-timer {
+      min-height: 99px;
+      width: 100%;
+      margin: 0;
+      padding: 11px;
+      text-align: center;
+
+      p {
+        font-size: 55px;
+        color: #6e9059;
+        padding: 0;
+        margin: 0;
+      }
+
+      .game-over {
+        font-size: 49px;
+        margin-top: 4px;
+      }
+    }
+
+    .scav-found-left-container {
+      width: 100%;
+
+      .scav-found {
+        @include scav-found-left-box($scav-item-blue);
+
+        p {
+          @include found-left-labels();
+        }
+      }
+
+      .scav-left {
+        @include scav-found-left-box($scav-item-red);
+
+        p {
+          @include found-left-labels();
+        }
+      }
+    }
+  }
+
+  .scav-tableview {
+    @include flicker-fix();
+    position: relative;
+    z-index: 1;
+    background-color: #e9e9e9;
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+    
+    .scav-tableview-top-shim {
+      height: 198px;
+    }
+
+    .scav-listitems {
+
+      .scav-item-row {
+        position: relative;
+        overflow: visible;
+        text-align: left;
+
+        .scav-item {
+          height: 66px;
+
+          .scav-item-image {
+            @include forty-four-image-size();
+            margin-top: 11px;
+            margin-left: 11px;
+          }
+
+          .scav-item-info {
+            font-size: 11px;
+            margin: 8px 0px 10px 21px;
+
+            p {
+              margin: 0;
+              padding: 0;
+            }
+          }
+
+          .scav-item-camera-action {
+            @include forty-four-image-size();
+            margin-top: 22px;
+            margin-bottom: 0;
+            margin-right: 22px;
+
+            a {
+              padding: 22px;
+              background: image-url('scavitemsscreen/scavhn-itemview-camera-arrow.png') no-repeat center center;
+            }
+          }
+        }
+
+        .scav-item-disabled {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 66px;
+          background-color: #e9e9e9;
+          opacity: 0.8;
+          display: none;
+        }
+      }
+    }
+
+    .scav-tableview-bottom-shim {
+      height: 46px;
+    }
+  }
+
+  .scav-cameraview {
+    @include flicker-fix();
+    position: fixed;
+    z-index: 2;
+    top: 187px;
+    right: -100%;
+    width: 100%;
+    bottom: 0;
+    background-color: #e9e9e9;
+
+    .scav-camera-initial-view{
+      width: inherit;
+      height: 206px;
+      z-index: -2;
+      /*display: none;*/
+
+      .scav-itemtofind-image {
+        margin-top: 20px;
+        margin-left: 20px;
+        padding: 22px;
+        background: image-url('scavitemsscreen/itemstofind/itemstofind-preloader.png') no-repeat center center;
+      }
+
+      .scav-camera-item-info {
+        position: relative;
+        left: 10px;
+        top: 26px;
+        width: 166px;
+
+        .scav-camera-item-info-name {
+          line-height: 1.2;
+          margin: 0 0;
+          font-size: 21px;
+          color: #595959;
+        }
+
+        .scav-camera-item-info-points {
+          margin-top: -2px;
+          margin-bottom: 4px;
+          color: #595959;
+          font-size: 13px;
+        }
+
+        .scav-camera-item-info-hint {
+          margin-top: 0;
+          color: #595959;
+          font-size: 13px;
+        }
+      }
+
+      .scav-item-camera-goback-action {
+        @include forty-four-image-size();
+        position: absolute;
+        top: 20px;
+        right: 22px;
+
+        a {
+          padding: 22px;
+          background: image-url('camerascreen/scavhn-cameraview-goback-arrow.png') no-repeat center center;
+        }
+      }
+    }
+
+    .scav-camera-result-view {
+      width: inherit;
+      height: 336px;
+      text-align: center;
+      z-index: -2;
+      display: none;
+
+      .scav-itemtofind-result-image {
+        position: relative;
+        top: 22px;
+        left: 38px;
+        width: 76px;
+        height: 76px;
+        background: image-url('camerascreen/itemstofind-preloader-large.png') no-repeat center center;
+      }
+
+      .scav-item-operator-icon {
+        position: relative;
+        top: 38px;
+        left: 64px;
+        height: 44px;
+        width: 46px;
+        opacity: 0;
+      }
+
+      .equals {
+        background: image-url('camerascreen/equals-icon.png') no-repeat center center;
+      }
+
+      .not-equals {
+        background: image-url('camerascreen/not-equals-icon.png') no-repeat center center;
+      }
+
+      .scav-itemfound-image {
+        position: relative;
+        top: 10px;
+        width: 76px;
+        height: 101px;
+        right: 38px;
+        /*@include opacity(0);*/
+        -webkit-mask-box-image: image-url('camerascreen/circle-mask.svg');
+        -webkit-mask-size: 76px 101px;
+        -webkit-mask-repeat: no-repeat;
+      }
+
+      .scav-itemfound-result-label {
+        position: absolute;
+        top: 30%;
+        width: 100%;
+        margin: 0 0;
+        font-size: 72px;
+        opacity: 0;
+      }
+
+      .sweet {
+        color: $scav-item-bronze;
+      }
+
+      .bummer {
+        color: $scav-item-red;
+      }
+    }
+
+    .scav-item-camera-cta {
+      @include scav-cta-size-sm();
+      overflow: hidden;
+      position: absolute;
+      bottom: 108px;
+      left: 22px;
+      /*display: none;*/
+
+      input {
+        @include scav-cta-size-sm();
+        cursor: pointer;
+        position: absolute;
+        top: 0px;
+        @include opacity(0);
+      }
+
+      p {
+        @include camera-cta-label();
+      }
+
+      /* For native view */
+      a {
+        @include camera-cta-label();
+      }
+    }
+
+
+    .new-picture {
+      background: image-url('camerascreen/scavhn-cameraview-camera-icon.png') no-repeat left center;
+      border: 1px solid $scav-item-grey;
+
+      p {
+        color: $scav-item-grey;
+      }
+    }
+
+    .retake-picture {
+      background: image-url('camerascreen/scavhn-cameraview-camera-retake-icon.png') no-repeat left center;
+      border: 1px solid $scav-item-green;
+
+      p {
+        color: $scav-item-green;
+      }
+    }
+
+    .scav-item-camera-native-cta {
+      position: absolute;
+      bottom: 108px;
+      left: 22px;
+    }
+
+    .new-picture-native {
+      a {
+        @include scav-cta-size-sm();
+        @include scav-cta($scav-item-grey, image-url('camerascreen/scavhn-cameraview-camera-icon.png'), null);
+
+        span {
+          margin-left: 55px;
+        }
+      }
+    }
+
+    .retake-picture-native {
+      a {
+        @include scav-cta-size-sm();
+        @include scav-cta($scav-item-green, image-url('camerascreen/scavhn-cameraview-camera-retake-icon.png'), null);
+
+        span {
+          margin-left: 55px;
+        }
+      }
+    }
+
+    .scav-item-camera-gobackafterattempt-action {
+      position: absolute;
+      bottom: 58px;
+      left: 22px;
+      display: none;
+
+      a {
+        @include scav-cta-size-sm();
+        @include scav-cta($scav-item-grey, image-url('camerascreen/scavhn-cameraview-goback-arrow.png'), null);
+
+        span {
+          margin-left: 55px;
+        }
+      }
+    }
+  }
+
+  .game-over-disabled {
+    -webkit-filter: blur(13px);
+  }
+
+  .scav-items-footer {
+    @include flicker-fix();
+    bottom: -1px;
+    padding-bottom: 1px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+
+    .quit-scav-action {
+      margin: 0 auto;
+      @include scav-cta-size-sm();
+
+      a {
+        width: inherit;
+        @include scav-cta($scav-item-red, image-url('scavitemsscreen/scavhn-itemview-quit-icon.png'), $scav-item-offwhite);
+
+        span {
+          margin-left: 55px;
+        }
+      }
+    }
+  }
+}
+
+/*********************************************
+    Responsive styling
+ *********************************************/
+
+/* iPhones (portrait) */
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+  /*CSS Instructions */
+  .scav-items-view {
+    .scav-items-header {
+      .ios7-statusbar-shim {
+        padding: 9px;
+        background-color: #000000;
+      }
+    }
+
+    .scav-cameraview {
+      top: 204px;
+    }
+  }
+}
+
+/* iPhone 5 (landscape) */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (orientation: landscape) {
+  /*CSS Instructions */
+  .scav-items-view {
+    .scav-items-header {
+      .ios7-statusbar-shim {
+        padding: 9px;
+        background-color: #000000;
+      }
+
+      .scav-timer {
+        display: none;
+      }
+
+      .scav-found-left-container {
+        display: none;
+      }
+    }
+
+    .scav-tableview {
+      .scav-tableview-top-shim {
+        display: none;
+      }
+    }
+
+    .scav-cameraview {
+      top: 44px;
+    }
+  }
+}
+
+/* iPads (portrait) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+  /*CSS Instructions */
+}
+
+/* iPads (landscape) */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+  /*CSS Instructions */
+}

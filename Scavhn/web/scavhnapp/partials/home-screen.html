@@ -1,0 +1,34 @@
+<div class="home-screen-view">
+  <div class="home-screen-title"></div>
+  <div class="scav-level-items-title">
+    <p><%= title %></p>
+  </div>
+  <div class="fcv scav-level-items">
+    <div class="fl scav-beginner-level-item">
+      <% var beginnerScav = _.find(scavCollection, function(scavData){ return scavData.level == 'Beginner'}) %>
+      <a href="#" data-scavid="<%= beginnerScav.id %>" class="ui-cta" style="<%= beginnerScav.backgroundImageURL %>">
+        <span><%= beginnerScav.name %>: <%= beginnerScav.level %></span>
+      </a>
+      <div class="fl scav-beginner-highlighted">&nbsp</div>
+    </div>
+    <div class="fl scav-intermediate-level-item">
+      <% var intermediateScav = _.find(scavCollection, function(scavData){ return scavData.level == 'Intermediate'}) %>
+      <a href="#" data-scavid="<%= intermediateScav.id %>" class="ui-cta" style="<%= intermediateScav.backgroundImageURL %>">
+        <span><%= intermediateScav.name %>: <%= intermediateScav.level %></span>
+      </a>
+      <div class="fl scav-intermediate-highlighted">&nbsp</div>
+    </div>
+    <div class="fl scav-expert-level-item">
+      <% var expertScav = _.find(scavCollection, function(scavData){ return scavData.level == 'Expert'}) %>
+      <a href="#" data-scavid="<%= expertScav.id %>" class="ui-cta" style="<%= expertScav.backgroundImageURL %>">
+        <span><%= expertScav.name %>: <%= expertScav.level %></span>
+      </a>
+      <div class="fl scav-expert-highlighted">&nbsp</div>
+    </div>
+  </div>
+  <div class="begin-scav-action">
+    <a href="#" class="ui-cta ui-cta-large ui-cta-large-disabled begin-scav">
+      <span><%= buttonLabel %></span>
+    </a>
+  </div>
+</div>

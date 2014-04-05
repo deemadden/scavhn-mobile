@@ -1,0 +1,230 @@
+@import "reset";
+@import "compass/css3";
+
+
+/*********************************************
+    Begin global shared classes
+    svn revision: $Rev$
+ *********************************************/
+
+/**
+  Float helpers
+  
+  cf: "clear float", clears a float. usage: <div class="fr">foo</div><div class="cf">bar</div>
+  fc: "float container", contains a float. usage: <div class="fc"><p class="fr">foo</p><p>bar</p></div>
+  fcv: "float container" with overflow: visible. usage: <div class="fcv"><p class="fr dropshadow">i have a bounds-extending drop shadow</p></div><div class="cf">Cleared!</div>
+  fl: "float left"
+  fr: "float right"
+**/
+.cf:before,
+.cf:after { content: ""; display: table; clear: both; }
+.fc       { overflow: hidden; }
+.fcv      { overflow: visible; }
+.fl       { float: left; }
+.fr       { float: right; }
+ul.fc,
+ul.fcv    { margin: 0; padding: 0; list-style: none; }
+ul.fc li,
+ul.fcv li { margin: 0; padding: 0; }
+
+/**
+  Orientation helpers. 'portrait' and 'landscape' are automatically appended to <body> onorientationchange
+  
+  o-land: landscape-only feature, hide it in portrait
+  o-port: portrait-only feature, hide it in landscape
+**/
+
+.portrait .o-land {
+  display: none;
+}
+
+.landscape .o-port {
+  display: none;
+}
+
+/**
+  Box sizing
+**/
+* {
+  @include box-sizing('border-box');
+}
+
+/*********************************************
+    End global shared classes
+    Begin fonts
+ *********************************************/
+
+$KlavikaRegular: 'KlavikaRegular';
+$HelveticaNeue: 'Conv_HelveticaNeue';
+$HelveticaNeueLight: 'Conv_HelveticaNeue_Lt';
+
+@font-face {
+  font-family: $KlavikaRegular;
+  src: url('klavika-regular.eot');
+  src: url('klavika-regular.woff') format('woff'),
+  url('klavika-regular.ttf') format('truetype'),
+  url('klavika-regular.svg#KlavikaRegular') format('svg');
+}
+
+@font-face {
+  font-family: $HelveticaNeue;
+  src: url('HelveticaNeue.eot');
+  src: url('HelveticaNeue.woff') format('woff'),
+  url('HelveticaNeue.ttf') format('truetype'),
+  url('HelveticaNeue.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $HelveticaNeueLight;
+  src: url('HelveticaNeue_Lt.eot');
+  src: url('HelveticaNeue_Lt.woff') format('woff'),
+  url('HelveticaNeue_Lt.ttf') format('truetype'),
+  url('HelveticaNeue_Lt.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*********************************************
+    End fonts
+    Begin global mixins
+ *********************************************/
+
+/**
+  Headings
+**/
+@mixin header {
+  font-size: 22px;
+}
+
+/*********************************************
+    End global mixins
+    Begin sprites
+ *********************************************/
+
+@import "sprites/*.png";
+@import "sprites2x/*.png";
+
+$sprites: sprite-map("sprites/*.png");
+$sprites2x: sprite-map("sprites2x/*.png");
+
+$retinaBgWidth: image-width(sprite-path($sprites-sprites));
+$retinaBgHeight: image-height(sprite-path($sprites-sprites));
+
+@mixin sprites-generate($image) {
+  .no-highresdisplay & {
+    @include sprites-sprite($image);
+  }
+  
+  .highresdisplay & {
+    @include sprites2x-sprite($image);
+    background-position: 0px nth(sprite-position($sprites2x, $image), 2) / 2;
+    background-size: $retinaBgWidth $retinaBgHeight;
+  }
+}
+
+/*********************************************
+    End sprites
+    Begin view imports     
+ *********************************************/
+
+/**
+  UI components
+**/
+
+/* button styling */
+.ui-cta {
+  display: inline-block;
+  font-family: $HelveticaNeueLight;
+  color: #e4e4e4;
+  text-decoration: none;
+}
+
+.ui-cta:visited,
+.ui-cta:hover
+.ui-cta:focus {
+  color: #e4e4e4;
+}
+
+.ui-cta-large {
+  @extend .ui-cta;
+  padding: 15px 106px 15px 84px;
+  line-height: 32px;
+  font-size: 32px;
+  border: 1px solid #595959;
+}
+
+.ui-cta-large.ui-cta-large-disabled {
+  background-color: #b8b8b8;
+  opacity: 0.5;
+  color: #595959;
+  border: 1px solid #595959;
+}
+
+/*********************************************
+    Global Variables
+ *********************************************/
+$scav-item-grey: #595959;
+$scav-item-offwhite: #e9e9e9;
+$scav-item-bronze: #cda349;
+$scav-item-green: #6e9059;
+$scav-vulture-green: #8ea583;
+$scav-item-blue: #5b9aa8;
+$scav-item-red: #e56c69;
+
+/*********************************************
+    Global CTA mixins
+ *********************************************/
+@mixin scav-cta-size-sm() {
+  width: 276px;
+  height: 44px;
+}
+
+@mixin scav-cta-size-lg() {
+  width: 276px;
+  height: 64px;
+}
+
+@mixin scav-cta-icon-border ($color, $image-url: null, $background-color: null) {
+  border: 1px solid $color;
+
+  @if $background-color {
+    background-color: $background-color;
+  }
+
+  @if $image-url {
+    background-image: $image-url;
+    background-position: top left;
+    background-repeat: no-repeat;
+  }
+}
+
+@mixin scav-cta($color, $image-url: null, $background-color: null) {
+  line-height: 2;
+  color: $color;
+  font-size: 22px;
+  @include scav-cta-icon-border($color, $image-url, $background-color);
+}
+
+@mixin scav-cta-lg($color, $image-url: null, $background-color: null) {
+  line-height: 2;
+  color: $color;
+  font-size: 32px;
+  @include scav-cta-icon-border($color, $image-url, $background-color);
+}
+
+/**
+  Views
+**/
+@import "views/AppView";
+@import "views/HomeScreenView";
+@import "views/ScavItemsView";
+@import "modals/LoadIndicator";
+
+/*********************************************
+   End view imports
+   End
+*********************************************/
+
+
