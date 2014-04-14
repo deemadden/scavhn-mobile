@@ -32,7 +32,7 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>DefaultValue</key>
-			<string>https://shop-dev.nike.net/das</string>
+			<string>http://scavhn.sftsrc.com/scavhn/v1/api</string>
 			<key>IsSecure</key>
 			<false/>
 			<key>Key</key>
